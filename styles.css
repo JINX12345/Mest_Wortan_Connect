@@ -125,18 +125,21 @@ h1, h2, h3 {
 
 .profile-grid {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
 .profile-card {
-  width: 30%;
+  width: 80%;
   background: white;
   padding: 1.5rem;
-  margin: 1rem;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .profile-card:hover {
@@ -146,7 +149,21 @@ h1, h2, h3 {
 
 .profile-card img {
   border-radius: 50%;
-  margin-bottom: 1rem;
+  width: 80px;
+  height: 80px;
+}
+
+.profile-card .profile-info {
+  flex-grow: 1;
+}
+
+.profile-card .profile-info h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.profile-card .profile-info p {
+  margin: 0.5rem 0;
 }
 
 .upvote-button {
@@ -175,7 +192,7 @@ h1, h2, h3 {
 /* Login Section */
 .login {
   height: 100vh;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  background: url('https://attachments.office.net/owa/008218%40wmac.com.au/service.svc/s/GetAttachmentThumbnail?id=AAMkAGE1YzMzYzNmLThhOTEtNDA4Ni1hMThhLTdhNDMyNGI3YjBlOABGAAAAAAAIYAVJCjsBT7B661HHOUMDBwCHWjRs%2BaqMRLjbYqV5AnIJAKmjRoBzAAD5A7%2Fi9%2F9%2BTYnUROR7tzhJAAeU87nSAAABEgAQADbrY9zAcBxKnjqdnn8JV%2B4%3D&thumbnailType=2&token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjNZV3czVzAwODRZT1FEWDNHOC9HeGsyQUNRWT0iLCJ4NXQiOiIzWVd3M1cwMDg0WU9RRFgzRzgvR3hrMkFDUVk9Iiwibm9uY2UiOiJaekhBcFhtZllnVmx0bWxoWEZUUlhqYlRkSUNWd185LWF5ZUV0Z1Fnd2ZMazVYUjdWd3ptNmNoc2huWm1ONEthUlpGSFc1b1FfbDJaNTRIRjhYZHA5Q2tzdm5zTHVsVUZaSDNvS05hVzF0NHd3VXgxVUtPbDhKT1ZrMGthSF9TV1pZckdtTGZ2NTJQTU9pcWlPUHZqeUtxLU9Gc29oUmJISVp5ejJfVThFbDgiLCJpc3Nsb2MiOiJTWTRQMjgyTUIzODU4Iiwic3JzbiI6NjM4NzU0OTM5ODU1NzAzNTE2fQ.eyJzYXAtdmVyc2lvbiI6IjMxIiwiYXBwaWQiOiJhZjNlYmJiYS1jMjNmLTQ5MmEtYWE5My04MzQyMTY5NmVjNGIiLCJpc3NyaW5nIjoiV1ciLCJhcHBpZGFjciI6IjIiLCJhcHBfZGlzcGxheW5hbWUiOiIiLCJ1dGkiOiI4NTkwOWY4ZC03ZGI1LTRhMDktOTViYi1iNzM2Y2RlMmVmM2YiLCJpYXQiOjE3Mzk5MzQxMTEsInZlciI6IlNUSS5Vc2VyLkNhbGxiYWNrVG9rZW4uVjEiLCJ0aWQiOiI0NGVkZmE1N2I3ZGI0ZTk4OGUxNzQ5OTFhNzMzMGJlMCIsInRydXN0ZWRmb3JkZWxlZ2F0aW9uIjoiZmFsc2UiLCJ0b3BvbG9neSI6IntcIlR5cGVcIjpcIk1hY2hpbmVcIixcIlZhbHVlXCI6XCJTWTRQMjgyTUIzODU4LkFVU1AyODIuUFJPRC5PVVRMT09LLkNPTVwifSIsInJlcXVlc3Rvcl9hcHBpZCI6IjE1N2NkZmJmLTczOTgtNGE1Ni05NmMzLWU5M2U5YWIzMDliNSIsInJlcXVlc3Rvcl9hcHBfZGlzcGxheW5hbWUiOiJPZmZpY2UgMzY1IEV4Y2hhbmdlIE1pY3Jvc2VydmljZSIsInNjcCI6Ik93YUF0dGFjaG1lbnRzLlJlYWQiLCJvaWQiOiI2Njk4YzQzMi05Mjc2LTQ0YTctYjA0NC01NzM1ZThkOTc4MWUiLCJwdWlkIjoiMTAwMzNGRkY5ODhCQTA4RiIsInNtdHAiOiIwMDgyMThAd21hYy5jb20uYXUiLCJ1cG4iOiIwMDgyMThAd21hYy5jb20uYXUiLCJ1c2VyY2FsbGJhY2t1c2VyY29udGV4dGlkIjoiNzNjZmUwZDYwN2UyNGE0ZGJmNTIzN2IyZjBlZDQwNzQiLCJzaWduaW5fc3RhdGUiOiJrbXNpIiwiZXBrIjoie1wia3R5XCI6XCJSU0FcIixcIm5cIjpcIjUySkVWR0djWUZDUDBpX2JDNHdsMFpGZElUR1dvMUo4VHJnOTVCZ2xKMEF5bXpSWTRQa3c1bGFLQVBPdEV5b21RdXA2eG1hNkQ4MWtoSk5BbEtTRTJZMEIxVUtOTzV6RDRCcVJBc2tyYkFVLXJOTjhLcURBZTRVVTVvOGw0YjNZWUQxY2l2RFhXUDRYUElQa0h5VVFHZ080dUM0dFAzR1dPVmppcW56WGRNOHR5amhLc2h5Qkpwem1mSEJ5cXE0dk1VSjZxUWVLNUpNMkFDMlEwTWRBYUtEY1JWbHhFWExDcmhYR3pIa1BaY0E3aElZWHNsNGFvZnU2X2RyZWxYWi0tcnhRblU5YjNOYmJHRlpUUjVzRnJzZVNmdlVBVW1vU1cyalZEcTk2N21aam5EcUpzb2NXNmZoY29VM2VBcVJRRUQ5U0xtZjA1UmxycW5jVFhVNm5rUVwiLFwiZVwiOlwiQVFBQlwiLFwiYWxnXCI6XCJSUzI1NlwiLFwiZXhwXCI6XCIxNzQwMDI0MDkyXCIsXCJleHBfZGlmZlwiOlwiODY0MDBcIixcImtpZFwiOlwiWXIteXJKLUZwUHFDRjM0WmVIaGdqTzhZel9nXCJ9LmIzb0NMclQ1OUdSWkU0OCtLeWFvWWtzV0J3c3VDejJnTkVSZ29DR0UzcnVhTWhoV0QvZkZoRFRqQktIeWQ4NWxWamIyb1ZHbmpaNVpIajllRXdrRXRIM3hQeUl5UWhrMjRhRjdUMXIwWUl3SzNnSjlvaGRpMnpjTVZHK3ZPa3dIZ0hSbk5WMUs2R0tqbjg4MC90TGcrYUVBUDU4MEpNcFlRYTZOY0VyVlIyaVpocGZMdmRoeHdDTmI3MzhwRUtXazh2Wll0dGxBTm1pNlJmbHNjYTMrRklHaGVsQnlpb0U3eEMwczdWK3czeTlCWmpmSlg5SzNUcm9zcTFSNklEc1hyQWRjcDVYaUZlTThGN3RhM2VXaXErbWQ3ZjJvVEVYYVZiUFdNTHdzck4vbWNYb0YyeGF2RTZpU3F3eExhamEwZGJCVkMrdGloRDgrQ3E1YUFiUVJhZz09IiwibmJmIjoxNzM5OTM0MTExLCJleHAiOjE3Mzk5MzQ0MTEsImlzcyI6Imh0dHBzOi8vc3Vic3RyYXRlLm9mZmljZS5jb20vc3RzLyIsImF1ZCI6Imh0dHBzOi8vb3V0bG9vay5vZmZpY2UuY29tIiwic3NlYyI6IkM1dC9pcVd2ZGVESytPSXMifQ.O2zEyNGzqyn5J54nTmBGF11Ljw9R8DlJP5v-ckee3bQNNqcbX83jAphx6GzJCIa8Z66RoEvM3OFQnpFhbfexGMsaZCOV181MCNd4N6J6v9lFIr1xY8affHeCdLog6WomPxJ1WLOxpt3vNIPDsqL4s-FpFWSwd2kpRbdPRNHuY1-zTyL2IwhcjtNuMdJwjJOQqbyHgMA2cTfySzwcROieUZRIHwWz_JtPqfFJwZSCrq1JNeT5WkB_LQT6WzaOoHAueFzHRDMUaBHbOJ8kJI1rfZs5tbX6hRRCX06CVtHwTfVQjL8tSLHRlcUxRPAa2U_ZEZqbUpIYcodJRUL2DcCpmA&X-OWA-CANARY=wTQ4TRcXUQIAAAAAAAAAAGD1I8WRUN0YNg1DSGhmh5RD8B0ppZmVsyDAovsp7vTtE12u9U6PvMk.&owa=outlook.office.com&scriptVer=20250206076.09&clientId=4501555C3284428C94A42B4E71861FD7&animation=true') no-repeat center center/cover;
   color: white;
   display: flex;
   justify-content: center;
@@ -184,47 +201,54 @@ h1, h2, h3 {
 }
 
 .login-content {
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
   animation: fadeIn 2s ease-in-out;
 }
 
 .login-title {
   font-size: 2.5rem;
-  margin: 0;
+  margin-bottom: 1rem;
 }
 
 .login-subtitle {
   font-size: 1.2rem;
-  margin: 1rem 0 2rem;
+  margin-bottom: 2rem;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 300px;
 }
 
 .login-form input {
-  padding: 0.5rem;
-  border: none;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1rem;
 }
 
 .login-button {
-  padding: 0.5rem;
-  background: white;
-  color: #1e3c72;
+  padding: 0.75rem;
+  background: #1e3c72;
+  color: white;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .login-button:hover {
+  background: #2a5298;
   transform: scale(1.05);
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
 }
 
 .login-footer {
@@ -233,7 +257,7 @@ h1, h2, h3 {
 }
 
 .login-footer a {
-  color: #ffd700;
+  color: #1e3c72;
   text-decoration: none;
 }
 
@@ -249,6 +273,76 @@ h1, h2, h3 {
 
 .logout-button:hover {
   background: #ff1a1a;
+}
+
+/* Sign-Up Section */
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('https://attachments.office.net/owa/008218%40wmac.com.au/service.svc/s/GetAttachmentThumbnail?id=AAMkAGE1YzMzYzNmLThhOTEtNDA4Ni1hMThhLTdhNDMyNGI3YjBlOABGAAAAAAAIYAVJCjsBT7B661HHOUMDBwCHWjRs%2BaqMRLjbYqV5AnIJAKmjRoBzAAD5A7%2Fi9%2F9%2BTYnUROR7tzhJAAeU87nSAAABEgAQAH8KrvM9Lq1LtL2QqZynD7c%3D&thumbnailType=2&token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjNZV3czVzAwODRZT1FEWDNHOC9HeGsyQUNRWT0iLCJ4NXQiOiIzWVd3M1cwMDg0WU9RRFgzRzgvR3hrMkFDUVk9Iiwibm9uY2UiOiJaekhBcFhtZllnVmx0bWxoWEZUUlhqYlRkSUNWd185LWF5ZUV0Z1Fnd2ZMazVYUjdWd3ptNmNoc2huWm1ONEthUlpGSFc1b1FfbDJaNTRIRjhYZHA5Q2tzdm5zTHVsVUZaSDNvS05hVzF0NHd3VXgxVUtPbDhKT1ZrMGthSF9TV1pZckdtTGZ2NTJQTU9pcWlPUHZqeUtxLU9Gc29oUmJISVp5ejJfVThFbDgiLCJpc3Nsb2MiOiJTWTRQMjgyTUIzODU4Iiwic3JzbiI6NjM4NzU0OTM5ODU1NzAzNTE2fQ.eyJzYXAtdmVyc2lvbiI6IjMxIiwiYXBwaWQiOiJhZjNlYmJiYS1jMjNmLTQ5MmEtYWE5My04MzQyMTY5NmVjNGIiLCJpc3NyaW5nIjoiV1ciLCJhcHBpZGFjciI6IjIiLCJhcHBfZGlzcGxheW5hbWUiOiIiLCJ1dGkiOiI4NTkwOWY4ZC03ZGI1LTRhMDktOTViYi1iNzM2Y2RlMmVmM2YiLCJpYXQiOjE3Mzk5MzQxMTEsInZlciI6IlNUSS5Vc2VyLkNhbGxiYWNrVG9rZW4uVjEiLCJ0aWQiOiI0NGVkZmE1N2I3ZGI0ZTk4OGUxNzQ5OTFhNzMzMGJlMCIsInRydXN0ZWRmb3JkZWxlZ2F0aW9uIjoiZmFsc2UiLCJ0b3BvbG9neSI6IntcIlR5cGVcIjpcIk1hY2hpbmVcIixcIlZhbHVlXCI6XCJTWTRQMjgyTUIzODU4LkFVU1AyODIuUFJPRC5PVVRMT09LLkNPTVwifSIsInJlcXVlc3Rvcl9hcHBpZCI6IjE1N2NkZmJmLTczOTgtNGE1Ni05NmMzLWU5M2U5YWIzMDliNSIsInJlcXVlc3Rvcl9hcHBfZGlzcGxheW5hbWUiOiJPZmZpY2UgMzY1IEV4Y2hhbmdlIE1pY3Jvc2VydmljZSIsInNjcCI6Ik93YUF0dGFjaG1lbnRzLlJlYWQiLCJvaWQiOiI2Njk4YzQzMi05Mjc2LTQ0YTctYjA0NC01NzM1ZThkOTc4MWUiLCJwdWlkIjoiMTAwMzNGRkY5ODhCQTA4RiIsInNtdHAiOiIwMDgyMThAd21hYy5jb20uYXUiLCJ1cG4iOiIwMDgyMThAd21hYy5jb20uYXUiLCJ1c2VyY2FsbGJhY2t1c2VyY29udGV4dGlkIjoiNzNjZmUwZDYwN2UyNGE0ZGJmNTIzN2IyZjBlZDQwNzQiLCJzaWduaW5fc3RhdGUiOiJrbXNpIiwiZXBrIjoie1wia3R5XCI6XCJSU0FcIixcIm5cIjpcIjUySkVWR0djWUZDUDBpX2JDNHdsMFpGZElUR1dvMUo4VHJnOTVCZ2xKMEF5bXpSWTRQa3c1bGFLQVBPdEV5b21RdXA2eG1hNkQ4MWtoSk5BbEtTRTJZMEIxVUtOTzV6RDRCcVJBc2tyYkFVLXJOTjhLcURBZTRVVTVvOGw0YjNZWUQxY2l2RFhXUDRYUElQa0h5VVFHZ080dUM0dFAzR1dPVmppcW56WGRNOHR5amhLc2h5Qkpwem1mSEJ5cXE0dk1VSjZxUWVLNUpNMkFDMlEwTWRBYUtEY1JWbHhFWExDcmhYR3pIa1BaY0E3aElZWHNsNGFvZnU2X2RyZWxYWi0tcnhRblU5YjNOYmJHRlpUUjVzRnJzZVNmdlVBVW1vU1cyalZEcTk2N21aam5EcUpzb2NXNmZoY29VM2VBcVJRRUQ5U0xtZjA1UmxycW5jVFhVNm5rUVwiLFwiZVwiOlwiQVFBQlwiLFwiYWxnXCI6XCJSUzI1NlwiLFwiZXhwXCI6XCIxNzQwMDI0MDkyXCIsXCJleHBfZGlmZlwiOlwiODY0MDBcIixcImtpZFwiOlwiWXIteXJKLUZwUHFDRjM0WmVIaGdqTzhZel9nXCJ9LmIzb0NMclQ1OUdSWkU0OCtLeWFvWWtzV0J3c3VDejJnTkVSZ29DR0UzcnVhTWhoV0QvZkZoRFRqQktIeWQ4NWxWamIyb1ZHbmpaNVpIajllRXdrRXRIM3hQeUl5UWhrMjRhRjdUMXIwWUl3SzNnSjlvaGRpMnpjTVZHK3ZPa3dIZ0hSbk5WMUs2R0tqbjg4MC90TGcrYUVBUDU4MEpNcFlRYTZOY0VyVlIyaVpocGZMdmRoeHdDTmI3MzhwRUtXazh2Wll0dGxBTm1pNlJmbHNjYTMrRklHaGVsQnlpb0U3eEMwczdWK3czeTlCWmpmSlg5SzNUcm9zcTFSNklEc1hyQWRjcDVYaUZlTThGN3RhM2VXaXErbWQ3ZjJvVEVYYVZiUFdNTHdzck4vbWNYb0YyeGF2RTZpU3F3eExhamEwZGJCVkMrdGloRDgrQ3E1YUFiUVJhZz09IiwibmJmIjoxNzM5OTM0MTExLCJleHAiOjE3Mzk5MzQ0MTEsImlzcyI6Imh0dHBzOi8vc3Vic3RyYXRlLm9mZmljZS5jb20vc3RzLyIsImF1ZCI6Imh0dHBzOi8vb3V0bG9vay5vZmZpY2UuY29tIiwic3NlYyI6IkM1dC9pcVd2ZGVESytPSXMifQ.O2zEyNGzqyn5J54nTmBGF11Ljw9R8DlJP5v-ckee3bQNNqcbX83jAphx6GzJCIa8Z66RoEvM3OFQnpFhbfexGMsaZCOV181MCNd4N6J6v9lFIr1xY8affHeCdLog6WomPxJ1WLOxpt3vNIPDsqL4s-FpFWSwd2kpRbdPRNHuY1-zTyL2IwhcjtNuMdJwjJOQqbyHgMA2cTfySzwcROieUZRIHwWz_JtPqfFJwZSCrq1JNeT5WkB_LQT6WzaOoHAueFzHRDMUaBHbOJ8kJI1rfZs5tbX6hRRCX06CVtHwTfVQjL8tSLHRlcUxRPAa2U_ZEZqbUpIYcodJRUL2DcCpmA&X-OWA-CANARY=wTQ4TRcXUQIAAAAAAAAAAABIWPuRUN0YkPyHmK3HQTy4PWEHfi8WYaRqCgSVTDMGpoRr3OEWz6g.&owa=outlook.office.com&scriptVer=20250206076.09&clientId=4501555C3284428C94A42B4E71861FD7&animation=true') no-repeat center center/cover;
+  color: white;
+}
+
+.signup-content {
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.signup-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.signup-subtitle {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.signup-form input {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.signup-button {
+  padding: 0.75rem;
+  background: #1e3c72;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.signup-button:hover {
+  background: #2a5298;
+  transform: scale(1.05);
+}
+
+.signup-footer {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.signup-footer a {
+  color: #1e3c72;
+  text-decoration: none;
 }
 
 /* Animations */

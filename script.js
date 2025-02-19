@@ -9,8 +9,6 @@ document.getElementById("login-form").addEventListener("submit", (e) => {
     window.location.href = "index.html"; // Redirect to main page
   } else {
     alert("Invalid username or password. Please try again.");
-    alert("This is a invalid form submision so please try again");
-
   }
 });
 
@@ -35,8 +33,27 @@ gsap.utils.toArray(".feature-card, .profile-card").forEach((card) => {
 // Upvote Functionality
 document.querySelectorAll(".upvote-button").forEach(button => {
   button.addEventListener("click", () => {
+    const staffId = button.getAttribute("data-id");
     const upvoteCount = button.querySelector(".upvote-count");
-    upvoteCount.textContent = parseInt(upvoteCount.textContent) + 1;
+
+    fetch('upvote_staff.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id: staffId }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        upvoteCount.textContent = parseInt(upvoteCount.textContent) + 1;
+      } else {
+        alert("Failed to upvote. Please try again.");
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
   });
 });
 
@@ -47,13 +64,28 @@ document.getElementById("add-staff-form").addEventListener("submit", (e) => {
     name: document.getElementById("staff-name").value,
     role: document.getElementById("staff-role").value,
     interests: document.getElementById("staff-interests").value,
-    image: document.getElementById("staff-image").value,
-    upvotes: 0,
+    image_url: document.getElementById("staff-image").value,
   };
-  staffData.push(newStaff);
-  renderStaffProfiles();
-  e.target.reset();
+
+  fetch('submit.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(newStaff),
+  })
+  .then(response => response.text())
+  .then(data => {
+    console.log(data);
+    renderStaffProfiles();
+    e.target.reset();
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
 });
+
+// Render the different staff profiles so that everything is set up to change 
 
 // Render Staff Profiles
 function renderStaffProfiles() {
@@ -67,7 +99,7 @@ function renderStaffProfiles() {
       <h3>${staff.name}</h3>
       <p>${staff.role}</p>
       <p class="interests">${staff.interests}</p>
-      <button class="upvote-button">👍 Upvote <span class="upvote-count">${staff.upvotes}</span></button>
+      <button class="upvote-button" data-id="${staff.id}">👍 Upvote <span class="upvote-count">${staff.upvotes}</span></button>
     `;
     profileGrid.appendChild(profileCard);
   });

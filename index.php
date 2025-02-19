@@ -9,7 +9,10 @@
 <body>
   <div class="container">
     <h1>Welcome to My App</h1>
-    <form id="dataForm">
+    <?php if (isset($_GET['message'])): ?>
+      <p><?php echo htmlspecialchars($_GET['message']); ?></p>
+    <?php endif; ?>
+    <form id="dataForm" action="submit_form.php" method="POST">
       <div class="form-group">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required>
@@ -22,6 +25,5 @@
     </form>
     <div id="response" class="response-message"></div>
   </div>
-  <script src="app.js"></script>
 </body>
 </html>
