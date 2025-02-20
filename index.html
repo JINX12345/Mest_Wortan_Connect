@@ -50,11 +50,11 @@
   <!-- Add New Staff Form -->
   <section class="add-staff" id="join">
     <h2>Join Our Team</h2>
-    <form id="add-staff-form">
-      <input type="text" id="staff-name" placeholder="Full Name" required>
-      <input type="text" id="staff-role" placeholder="Role (e.g., Math Teacher)" required>
-      <textarea id="staff-interests" placeholder="Interests and Contributions" required></textarea>
-      <input type="text" id="staff-image" placeholder="Profile Image URL" required>
+    <form id="add-staff-form" action="submit_staff.php" method="POST">
+      <input type="text" id="staff-name" name="name" placeholder="Full Name" required>
+      <input type="text" id="staff-role" name="role" placeholder="Role (e.g., Math Teacher)" required>
+      <textarea id="staff-interests" name="interests" placeholder="Interests and Contributions" required></textarea>
+      <input type="text" id="staff-image" name="image_url" placeholder="Profile Image URL" required>
       <button type="submit">Add Staff Member</button>
     </form>
   </section>

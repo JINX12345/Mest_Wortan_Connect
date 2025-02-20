@@ -60,6 +60,32 @@ $result = $conn->query($sql);
   </section>
 
   <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.upvote-button').click(function() {
+        var button = $(this);
+        var id = button.data('id');
+        
+        $.ajax({
+          url: 'upvote.php',
+          type: 'POST',
+          data: { id: id },
+          success: function(response) {
+            var data = JSON.parse(response);
+            if (data.upvotes !== undefined) {
+              button.find('.upvote-count').text(data.upvotes);
+            } else {
+              alert('Failed to upvote');
+            }
+          },
+          error: function() {
+            alert('Error in upvoting');
+          }
+        });
+      });
+    });
+  </script>
   <script src="script.js"></script>
 </body>
 </html>

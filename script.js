@@ -30,29 +30,31 @@ gsap.utils.toArray(".feature-card, .profile-card").forEach((card) => {
   });
 });
 
-// Upvote Functionality
-document.querySelectorAll(".upvote-button").forEach(button => {
-  button.addEventListener("click", () => {
-    const staffId = button.getAttribute("data-id");
-    const upvoteCount = button.querySelector(".upvote-count");
+document.addEventListener("DOMContentLoaded", () => {
+  // Upvote Functionality
+  document.querySelectorAll(".upvote-button").forEach(button => {
+    button.addEventListener("click", () => {
+      const staffId = button.getAttribute("data-id");
+      const upvoteCount = button.querySelector(".upvote-count");
 
-    fetch('upvote_staff.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ id: staffId }),
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.success) {
-        upvoteCount.textContent = parseInt(upvoteCount.textContent) + 1;
-      } else {
-        alert("Failed to upvote. Please try again.");
-      }
-    })
-    .catch((error) => {
-      console.error('Error:', error);
+      fetch('upvote_staff.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id: staffId }),
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          upvoteCount.textContent = parseInt(upvoteCount.textContent) + 1;
+        } else {
+          alert("Failed to upvote. Please try again.");
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
     });
   });
 });
