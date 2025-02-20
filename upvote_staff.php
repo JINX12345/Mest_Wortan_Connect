@@ -16,6 +16,8 @@ if ($conn->connect_error) {
 $data = json_decode(file_get_contents('php://input'), true);
 $staffId = $data['id'];
 
+
+
 // Update upvotes in the database
 $sql = "UPDATE staff_profiles SET upvotes = upvotes + 1 WHERE id = $staffId";
 $response = array();
