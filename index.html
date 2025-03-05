@@ -47,42 +47,18 @@
     </div>
   </section>
 
-  <!-- Add New Staff Form -->
+  <!-- Join Our Team Section -->
   <section class="add-staff" id="join">
     <h2>Join Our Team</h2>
+    <p>We are always looking for talented individuals to join our team. Fill out the form below to get started.</p>
     <form id="add-staff-form" action="submit_staff.php" method="POST">
-      <input type="text" class="box" id="staff-name" name="name" placeholder="Full Name" required>
-      <input type="text" class="box" id="staff-role" name="role" placeholder="Role (e.g., Math Teacher)" required>
-      <textarea id="staff-interests" class="box" name="interests" placeholder="Interests and Contributions" required></textarea>
-      <input type="text" id="staff-image" class="box" name="image_url" placeholder="Profile Image URL" required>
-      <button type="submit">Add Staff Member</button>
+      <input type="text" id="staff-name" name="name" placeholder="Full Name" required>
+      <input type="text" id="staff-role" name="role" placeholder="Role (e.g., Math Teacher)" required>
+      <textarea id="staff-interests" name="interests" placeholder="Interests and Contributions" required></textarea>
+      <input type="text" id="staff-image" name="image_url" placeholder="Profile Image URL" required>
+      <button type="submit" class="submit-button">Add Staff Member</button>
     </form>
   </section>
-
-<!-- Add New Staff Form -->
-<section class="add-staff" id="join">
-  <h2 class="section-title">Join Our Team</h2>
-  <p class="section-subtitle">Help us expand our staff roster with talented individuals who will make a difference in our community.</p>
-  <form id="add-staff-form" action="submit_staff.php" method="POST" class="form-container">
-    <div class="form-group">
-      <label for="staff-name">Full Name</label>
-      <input type="text" id="staff-name" name="name" placeholder="Enter full name" required class="input-field">
-    </div>
-    <div class="form-group">
-      <label for="staff-role">Role</label>
-      <input type="text" id="staff-role" name="role" placeholder="Enter role (e.g., Math Teacher)" required class="input-field">
-    </div>
-    <div class="form-group">
-      <label for="staff-interests">Interests and Contributions</label>
-      <textarea id="staff-interests" name="interests" placeholder="Describe interests and contributions" required class="textarea-field"></textarea>
-    </div>
-    <div class="form-group">
-      <label for="staff-image">Profile Image URL</label>
-      <input type="text" id="staff-image" name="image_url" placeholder="Enter image URL" required class="input-field">
-    </div>
-    <button type="submit" class="submit-button">Add Staff Member</button>
-  </form>
-</section>
 
   <!-- Staff Profiles Section -->
   <section class="staff-profiles" id="staff">
